@@ -16,10 +16,7 @@
     <label id="auto_login">
         <input type="checkbox">로그인 상태 유지
     </label>
-    <input type="submit" value="로그인">
-    <div class="links">
-        <a href="#">회원가입</a>  <a href="terms_of_Use.jsp">이용약관</a>
-    </div>
+
     <div class="footer">
         <p>Copyright<span id="copyright"> © 재활용마켓</span> All Rights Reserved.</p>
     </div>
