@@ -36,7 +36,7 @@
         </c:choose>
     </form>
     <div class="links">
-        <a href="#">회원가입</a> <a href="terms_of_Use.jsp">이용약관</a>
+        <a href="join.jsp">회원가입</a> <a href="terms_of_Use.jsp">이용약관</a>
     </div>
     <c:if test="${not empty param.msg}">
         <p>${param.msg}</p>
