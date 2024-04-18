@@ -3,6 +3,8 @@ package dao;
 import common.DBCP;
 import dto.MemberDTO;
 
+import java.sql.SQLException;
+
 public class MemberDAO extends DBCP {
 
     public int login(String member_id, String member_pw) {
@@ -71,6 +73,21 @@ public class MemberDAO extends DBCP {
 
         return result;
     }
+    public int checkId( String member_id) {
+        int result = 0;
 
+        try {
+            String sql = "select count(*) from RECYCLE_MEMBER where member_id=?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, member_id);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                result = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }
 
