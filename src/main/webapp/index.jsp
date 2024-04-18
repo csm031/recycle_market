@@ -25,9 +25,17 @@
         </p>
     </div>
 </header>
-<hr style="">
+<hr>
 <footer>
     <p>Copyright<span id="copyright"> © 재활용마켓</span> All Rights Reserved.</p>
 </footer>
+<script>
+    window.onload = function() {
+        let joinSuccess = "${param.join_success}";
+        if (joinSuccess) {
+            alert(joinSuccess);
+        }
+    }
+</script>
 </body>
 </html>
