@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,6 +82,10 @@
             </ol>
             </ul>
         </div><br>
+        <label>
+            <input type="checkbox" name="save_id" value="Y">
+            <span style="color: green; font-size: 13px">[필수]</span> 이용약관 동의<br>
+        </label>
         <input type="submit" value="가입하기">
         <input type="reset" value="취소하기">
     </form>
@@ -90,6 +93,7 @@
     <div class="footer">
         <p>Copyright<span id="copyright"> © 재활용마켓</span> All Rights Reserved.</p>
     </div>
+
 </div>
 </body>
 </html>

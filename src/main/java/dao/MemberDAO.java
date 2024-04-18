@@ -52,6 +52,25 @@ public class MemberDAO extends DBCP {
         return dto;
     }
 
+    public int join(MemberDTO dto) {
+        int result = 0;
+        try {
+            String sql = "insert into RECYCLE_MEMBER (M_IDX, MEMBER_ID, MEMBER_PW, MEMBER_NAME, NICKNAME, HANDPHONE, EMAIL)" +
+                    " VALUES(RECYCLE_MEMBER_SEQ.nextval,?,?,?,?,?,?)";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, dto.getMember_id());
+            pstmt.setString(2, dto.getMember_pw());
+            pstmt.setString(3, dto.getMember_name());
+            pstmt.setString(4, dto.getNickname());
+            pstmt.setString(5, dto.getHandphone());
+            pstmt.setString(6, dto.getEmail());
+            result = pstmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
 
 }
 
