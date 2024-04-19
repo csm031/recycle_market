@@ -37,7 +37,7 @@
                    disabled="disabled" maxlength="6">
             <input type="button" id="confirm_email_btn" value="인증확인">
         </div>
-        <input type="hidden" name="result_confirm" id="result_confirm">
+        <input type="hidden" name="result_confirm" id="result_confirm" >
         <div id="mail-check-result"></div>
         <br>
         <div id="terms_of_use"

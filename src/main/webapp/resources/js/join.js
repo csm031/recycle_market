@@ -58,7 +58,7 @@ $(function () {
         } else if($("#email").val().length === 0) {
             alert("이메일이 입력되지 않았습니다.");
             $("#email").focus();
-        } else if($("#result_confirm").val().length === "FAIL" || $("#result_confirm").val().length === 0) {
+        } else if($("#result_confirm").val() === "FAIL" || $("#result_confirm").val().length === 0) {
             alert("이메일 인증이 필요합니다.");
             $("#email").focus();
         } else if(!$("#save_id").prop('checked')) {
