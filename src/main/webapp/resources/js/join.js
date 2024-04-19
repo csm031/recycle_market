@@ -61,6 +61,8 @@ $(function () {
         } else if($("#result_confirm").val().length === "FAIL" || $("#result_confirm").val().length === 0) {
             alert("이메일 인증이 필요합니다.");
             $("#email").focus();
+        } else if(!$("#save_id").prop('checked')) {
+            alert("이용약관 동의가 필요합니다.");
         }
 
         else{//유효성 검사를 통과한 경우
@@ -69,6 +71,47 @@ $(function () {
         if(!valid){
             e.preventDefault();
             e.stopPropagation();
+        }
+    })
+
+    let code;
+    const checkInput = $("#auth_num_input");
+
+    $("#email_auth_btn").on("click",() => {
+        const email = $("#email").val();
+
+        let regExp_email = /^[0-9A-Za-z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
+        if (regExp_email.test(email)) {
+
+            $.ajax({
+                type:"get",
+                url:"checkEmail.jsp?email="+email,
+                success: (data) => {
+                    checkInput.attr("disabled", false);
+                    code = data.trim();
+                    alert("인증번호가 전송되었습니다.")
+                },
+            })
+        } else {
+            alert("입력하신 내용이 이메일 형식에 맞지 않습니다.");
+            form_join.$("#email").focus();
+        }
+    })
+
+    $("#confirm_email_btn").on("click", () => {
+        const inputCode = checkInput.val();
+        const resultMsg = $("#mail-check-result")
+        resultMsg.show();
+        const resultEmailAuth = $("#result_confirm");//인증결과를 넘겨줄 input hidden 태그
+
+        if (inputCode === code) {
+            resultMsg.html("정상적으로 인증되었습니다.");
+            resultMsg.css("color", "green");
+            resultEmailAuth.val("PASS");
+        } else {
+            resultMsg.html("인증번호가 맞지 않습니다. 다시 확인해주세요");
+            resultMsg.css("color", "red");
+            resultEmailAuth.val("FAIL");
         }
     })
 })

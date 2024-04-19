@@ -98,7 +98,7 @@
         </div>
         <br>
         <label>
-            <input type="checkbox" name="save_id" value="Y" >
+            <input type="checkbox" name="agreement" value="Y" id ="save_id">
             <span style="color: green; font-size: 13px">[필수]</span> 이용약관 동의<br>
         </label>
         <input type="submit" value="가입하기">
