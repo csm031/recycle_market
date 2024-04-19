@@ -46,7 +46,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" name="jsp-api" level="project" />
-    <orderEntry type="library" name="ojdbc6" level="project" />
     <orderEntry type="library" name="tomcat-dbcp" level="project" />
     <orderEntry type="library" name="catalina" level="project" />
     <orderEntry type="module-library">
@@ -63,7 +62,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/jakarta-taglibs-standard-1.1.2/lib/jstl.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../jakarta-taglibs-standard-1.1.2/lib/jstl.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -72,14 +71,12 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/jakarta-taglibs-standard-1.1.2/lib/standard.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../jakarta-taglibs-standard-1.1.2/lib/standard.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="cos" level="project" />
-    <orderEntry type="library" name="jstl-1.2" level="project" />
     <orderEntry type="library" name="mail-1.4.7" level="project" />
     <orderEntry type="library" name="activation-1.1.1" level="project" />
     <orderEntry type="module-library">

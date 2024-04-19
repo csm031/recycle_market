@@ -13,6 +13,8 @@
         </jsp:forward>
     </c:when>
     <c:otherwise>
-        <c:redirect url="${pageContext.request.contextPath}/member/join.jsp"/>
+        <c:redirect url="join.jsp">
+            <c:param name="joinfail" value="회원가입에 실패하셨습니다."/>
+        </c:redirect>
     </c:otherwise>
 </c:choose>

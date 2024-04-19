@@ -7,49 +7,21 @@
     <title>회원가입</title>
     <link rel="icon" href="../resources/img/title_logo.png" type="image/png">
     <script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
-    <script>
-        $(function () {
-            $("check_id").on("click", () => {
-                let member_id = $("#member_id").val();
-                if (member_id.length === 0) {
-                    alert("아이디가 입력되지 않았습니다.")
-                    let form_join = $(form_join);
-                    form_join.member_id.focus();
-                } else {
-                    $.ajax({
-                        type: "post",
-                        url: "checkId.jsp",
-                        data: {"member_id": member_id},
-                        success: function (result) {
-                            const resultCheck = $("result_checkId");
-                            resultCheck.show();
-                            if (result.trim() === "PASS") {
-                                resultCheck.html("사용 가능한 아이디입니다.").css("color", "green");
-                            } else {
-                                resultCheck.html("이미 사용중인 아이디입니다.").css("color", "red");
-                                $("member_id").val("").trigger("focus");
-                            }
-                        },
-                        error: function (error) {
-                            console.log("아이디 중복검사 에러")
-                        },
-                    })
-                }
-            })
-        })
-    </script>
+    <script src="${pageContext.request.contextPath}/resources/js/join.js"></script>
+
 </head>
 <body>
 <div class="form">
+    <a href="../index.jsp"><img src="../resources/img/로고.png" alt="로고"></a>
     <h3>본인 정보를 입력해주세요</h3>
-    <form method="post" action="joinProcess.jsp" name="form_join">
+    <form method="post" action="joinProcess.jsp" name="form_join" id="form_join">
         <input type="text" name="member_id" id="member_id" placeholder="아이디">
         <input type="button" id="check_id" value="중복검사">
         <div id="result_checkId"></div>
-        <input type="password" name="member_pw" placeholder="비밀번호"><br>
-        <input type="text" name="member_name" placeholder="이름"><br>
-        <input type="text" name="nickname" placeholder="닉네임"><br>
-        <input type="text" name="handphone" placeholder="핸드폰번호">
+        <input type="password" name="member_pw" id ="member_pw" placeholder="비밀번호"><br>
+        <input type="text" name="member_name" id="member_name" placeholder="이름"><br>
+        <input type="text" name="nickname" id ="nickname" placeholder="닉네임"><br>
+        <input type="text" name="handphone" id="handphone" placeholder="핸드폰번호">
         <select id="news_agency">
             <option value="" selected disabled>통신사</option>
             <option value="SKT">SKT</option>
@@ -126,7 +98,7 @@
         </div>
         <br>
         <label>
-            <input type="checkbox" name="save_id" value="Y">
+            <input type="checkbox" name="save_id" value="Y" >
             <span style="color: green; font-size: 13px">[필수]</span> 이용약관 동의<br>
         </label>
         <input type="submit" value="가입하기">
@@ -138,6 +110,14 @@
     </div>
 
 </div>
+<script>
+    window.onload = function () {
+        let joinfail = "${param.joinfail}";
+        if (joinfail) {
+            alert(joinfail);
+        }
+    }
+</script>
 </body>
 </html>
 
